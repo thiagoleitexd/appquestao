@@ -1,0 +1,22 @@
+.cor_da_pergunta{
+	background-color: lightgray;
+	color:black;
+	font-weight: bold;
+	font-size: 100%;
+}
+
+.cor_mensagem_acerto{
+	background-color: green;
+	font-weight: bold;
+	text-align: center;
+}
+
+.cor_mensagem_erro{
+	background-color: #ff471a;
+	font-weight: bold;
+	text-align: center;
+}
+
+.sumir_mensagem_certo_ou_errado{
+	display: none;
+}

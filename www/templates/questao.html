@@ -1,0 +1,30 @@
+<ion-view view-title="Questão {{contador+1}}/{{quantidadeQuestoes}}">
+  <ion-content>
+
+<div class="card">
+  <div class="item item-text-wrap cor_da_pergunta" >
+    {{questao.enunciado}}
+  </div>
+</div>
+{{alternativas}}
+{{resposta_certa}}
+    <ion-list>
+      <ion-item ng-repeat="alternativa in alternativas" ng-click="marcouAlternativa(alternativa.id)">
+        <pre> {{alternativa}} </pre>
+      </ion-item>
+    </ion-list>
+
+
+  <div class="item item-text-wrap {{estilo_acerto_ou_erro}}" >
+    {{mensagem_de_acerto_ou_erro}}
+  </div>
+
+<button class="button button-block button-positive" ng-click="proximaQuestao()" ng-hide="quantidadeQuestoes <= (contador+1)">
+  Proxima Questão
+</button>
+<button class="button button-block button-balanced" ng-click="anteriorQuestao()" ng-hide="contador == 0">
+  Voltar
+</button>
+
+  </ion-content>
+</ion-view>
