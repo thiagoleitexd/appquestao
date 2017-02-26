@@ -6,11 +6,10 @@
     {{questao.enunciado}}
   </div>
 </div>
-{{alternativas}}
-{{resposta_certa}}
+
     <ion-list>
-      <ion-item ng-repeat="alternativa in alternativas" ng-click="marcouAlternativa(alternativa.id)">
-        <pre> {{alternativa}} </pre>
+      <ion-item class="item-text-wrap" ng-repeat="alternativa in alternativas" ng-click="marcouAlternativa(alternativa[1])">
+        {{alternativa[0]}}
       </ion-item>
     </ion-list>
 
@@ -25,6 +24,9 @@
 <button class="button button-block button-balanced" ng-click="anteriorQuestao()" ng-hide="contador == 0">
   Voltar
 </button>
+
+{{erro}}
+{{error}}
 
   </ion-content>
 </ion-view>

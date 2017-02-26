@@ -34,9 +34,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('app.search', {
     url: '/search',
+    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+          templateUrl: 'templates/questao.html',
+          controller: 'AtualizarCtrl'
       }
     }
   })
@@ -51,6 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
     .state('app.questao', {
       url: '/questao',
+      cache:false,
       views: {
         'menuContent': {
           templateUrl: 'templates/questao.html',

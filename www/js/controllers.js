@@ -50,12 +50,16 @@ angular.module('starter.controllers', [])
 
       console.log($scope.resposta_certa);
       
-      var alternativas = [];
-      alternativas.push('A.'+$scope.questao_json[i].alternativaA);
-      alternativas.push('B.'+$scope.questao_json[i].alternativaB);
-      alternativas.push('C.'+$scope.questao_json[i].alternativaC);
-      alternativas.push('D.'+$scope.questao_json[i].alternativaD);
-      alternativas.push('E.'+$scope.questao_json[i].alternativaE);
+      var alternativas = 
+        [
+        ["A. "+$scope.questao_json[i].alternativaA,1],
+        ["B. "+$scope.questao_json[i].alternativaB,2],
+        ["C. "+$scope.questao_json[i].alternativaC,3],
+        ["D. "+$scope.questao_json[i].alternativaD,4],
+        ["E. "+$scope.questao_json[i].alternativaE,5]
+        ];
+
+        console.log(alternativas);
 
       $scope.alternativas = alternativas;
 
@@ -67,6 +71,9 @@ angular.module('starter.controllers', [])
               $scope.quantidadeQuestoes = response.data.length;
               $scope.contador = 0;
               getQuestoes($scope.contador);
+  }, function(error){
+    $scope.erro = "deu erro";
+    $scope.error = error;
   });
 
   
@@ -84,18 +91,27 @@ angular.module('starter.controllers', [])
 
   //funcao acionada quando clica em uma alternativa
   $scope.marcouAlternativa = function (id){
-    if ($scope.resposta_certa == $scope.alternativa_correta){
+
+    var arrayLetras = ["A","B","C","D","E"];
+
+    if ($scope.resposta_certa == id){
       $scope.estilo_acerto_ou_erro = "cor_mensagem_acerto";
-      $scope.mensagem_de_acerto_ou_erro = "Acertou: " + id ;
+      $scope.mensagem_de_acerto_ou_erro = "Você Marcou Letra: " + arrayLetras[id-1]+ ". Você Acertou!" ;
     }
     else{
       $scope.estilo_acerto_ou_erro = "cor_mensagem_erro";
-      $scope.mensagem_de_acerto_ou_erro = "Errou: " + id ; 
+      $scope.mensagem_de_acerto_ou_erro = "Você Marcou Letra: " + arrayLetras[id-1]+ ". Você Errou!" ;
     }
   }
 
 
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('AtualizarCtrl', function($scope, $stateParams, $state) {
+
+  console.log('xxx');
+  $state.go('app.questao');
+
+
+
 });
